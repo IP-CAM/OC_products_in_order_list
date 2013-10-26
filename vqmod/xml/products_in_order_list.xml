@@ -7,7 +7,7 @@
   <file name="admin/model/sale/order.php">
     <operation>
       <search position="ireplace"><![CDATA[o.date_added, o.date_modified]]></search>
-      <add><![CDATA[o.date_added, o.date_modified, (SELECT GROUP_CONCAT( CONCAT(op.quantity,  ' x ', op.model) SEPARATOR '<br />' ) AS p FROM `order_product` op
+      <add><![CDATA[o.date_added, o.date_modified, (SELECT GROUP_CONCAT( CONCAT(op.quantity,  ' x ', op.name) SEPARATOR '<br />' ) AS p FROM `order_product` op
 						WHERE o.order_id = op.order_id
 						GROUP BY op.order_id) as products ]]></add>
     </operation>
